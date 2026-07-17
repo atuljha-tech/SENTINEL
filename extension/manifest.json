@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "SENTINEL Security Guardian",
+  "version": "10.0.0",
+  "description": "AI Security Layer — real-time threat detection, sandbox isolation, Civic governance. Part of the SENTINEL ASP on OKX.AI.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "cookies",
+    "tabs",
+    "notifications",
+    "scripting",
+    "webNavigation",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "https://lokey-secure.vercel.app/*",
+    "https://ai-nms-security.vercel.app/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "exclude_matches": ["*://localhost/*", "*://127.0.0.1/*"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI-NMS Security Guardian"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html", "popup.css", "popup.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

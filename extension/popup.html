@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-NMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="shell">
+
+    <!-- HEADER -->
+    <div class="hdr">
+      <div class="hdr-left">
+        <span class="hdr-logo">AI-NMS<span class="cursor"></span></span>
+        <span class="hdr-sub">// SECURITY GUARDIAN</span>
+      </div>
+      <div class="hdr-right">
+        <span class="dot pulse"></span>
+        <span class="live-txt">LIVE</span>
+      </div>
+    </div>
+
+    <!-- SCANNING STATE -->
+    <div id="scanState" class="scan-state hidden">
+      <div class="scan-spinner"></div>
+      <div class="scan-txt">ANALYZING<span class="cursor"></span></div>
+      <div class="scan-domain" id="scanDomain"></div>
+    </div>
+
+    <!-- MAIN -->
+    <div id="mainContent">
+
+      <!-- SCORE BLOCK -->
+      <div class="score-block">
+        <div class="score-ring-wrap">
+          <svg class="score-svg" viewBox="0 0 110 110">
+            <circle class="ring-track" cx="55" cy="55" r="46"/>
+            <circle class="ring-fill"  cx="55" cy="55" r="46" id="ringFill"/>
+          </svg>
+          <div class="score-inner">
+            <div class="score-num" id="scoreNum">--</div>
+            <div class="score-lbl">SCORE</div>
+          </div>
+        </div>
+        <div class="score-info">
+          <div class="risk-tag" id="riskTag">SCANNING</div>
+          <div class="domain-val" id="domainVal">--</div>
+          <div class="summary-val" id="summaryVal">Waiting for analysis...</div>
+          <div class="threat-count" id="threatCount">0 threats detected</div>
+        </div>
+      </div>
+
+      <!-- METRICS -->
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-val" id="mThreats">0</div>
+          <div class="metric-lbl">THREATS</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val" id="mRisk">0</div>
+          <div class="metric-lbl">RISK_SCORE</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val" id="mSites">0</div>
+          <div class="metric-lbl">SITES_SCANNED</div>
+        </div>
+      </div>
+
+      <!-- TABS -->
+      <div class="tabs">
+        <button class="tab active" data-tab="threats">THREATS</button>
+        <button class="tab" data-tab="history">HISTORY</button>
+        <button class="tab" data-tab="tips">TIPS</button>
+      </div>
+
+      <div class="tab-pane active" id="tab-threats">
+        <div id="threatsList"></div>
+      </div>
+      <div class="tab-pane" id="tab-history">
+        <div id="historyList"></div>
+      </div>
+      <div class="tab-pane" id="tab-tips">
+        <div id="tipsList"></div>
+      </div>
+
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="actions">
+      <button class="btn-primary" id="btnDashboard">[ OPEN_DASHBOARD ]</button>
+      <button class="btn-sec" id="btnRescan">[ RESCAN ]</button>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <span>GROQ AI // llama-3.3-70b</span>
+      <span id="clock">--:--:--</span>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Scan a website in the sandbox
+npm run lokey -- scan <url>
+npm run lokey -- scan github.com
+npm run lokey -- scan http://login-verify-account.com
+
+# Full sandbox execution log
+npm run lokey -- sandbox <url>
+npm run lokey -- sandbox example.com
+
+# Show active threat alerts
+npm run lokey -- alerts
+npm run lokey -- alerts --limit 10
+
+# Live traffic stream
+npm run lokey -- traffic
+npm run lokey -- traffic --limit 50
+
+# Block an IP address
+npm run lokey -- block-ip <ip>
+npm run lokey -- block-ip 45.33.22.11
+
+# Recent sandbox-scanned sites
+npm run lokey -- sites
+
+# Full system security stats
+npm run lokey -- stats
+
+# Help
+npm run lokey -- --help
+npm run lokey -- scan --help
