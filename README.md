@@ -23,27 +23,27 @@
 
 <div align="center">
 
-### Landing Page — Live URL Analysis
-<img src="public/ss1.png" alt="SENTINEL Landing Page — Live URL Analysis" width="900">
-<p><em>Analyze any URL in real-time. Risk score 85/100 · BLOCKED · Critical threats detected instantly.</em></p>
+### 🏠 Landing Page — Live URL Analysis
+<img src="public/ss1.png" alt="SENTINEL Landing Page" width="900">
+<p><em>Paste any URL. SENTINEL analyzes it instantly — risk score 85/100, BLOCKED, critical threats detected in under 3 seconds.</em></p>
 
----
+<br/>
 
-### SOC Dashboard — Live Traffic Monitoring
+### 📊 SOC Dashboard — Real-Time Threat Monitoring
 <img src="public/ss2.png" alt="SENTINEL SOC Dashboard" width="900">
-<p><em>50 active alerts · 21 attack events · Real-time traffic analysis with risk score overlay and threat distribution chart.</em></p>
+<p><em>50 active alerts · 21 confirmed attacks · Live traffic analysis with risk score overlay and threat distribution chart.</em></p>
 
----
+<br/>
 
-### Threat Forecast — Predictive AI Engine
-<img src="public/ss3.png" alt="SENTINEL Threat Forecast Panel" width="900">
-<p><em>95% probability of DDoS attack · 1 minute to peak · AI reasoning from Groq Llama 3.3 70B.</em></p>
+### 🔮 Threat Forecast — Predictive AI Engine
+<img src="public/ss3.png" alt="SENTINEL Threat Forecast" width="900">
+<p><em>95% probability of DDoS attack · 1 minute to peak · Groq Llama 3.3 70B reasoning from live traffic signals.</em></p>
 
----
+<br/>
 
-### Sandbox Scanner — Isolated Playwright Analysis
+### 🔬 Sandbox Scanner — Isolated Playwright Analysis
 <img src="public/ss4.png" alt="SENTINEL Sandbox Scanner" width="900">
-<p><em>paypal-secure-login.com scanned in isolation · Risk 55/100 · WARNING · Phishing URL pattern detected.</em></p>
+<p><em>paypal-secure-login.com executed in full isolation · Risk 55/100 · WARNING · Phishing URL pattern detected. Your browser never touched it.</em></p>
 
 </div>
 
@@ -51,9 +51,7 @@
 
 ## What is SENTINEL?
 
-SENTINEL is a full-stack AI security platform built as an **Agent Service Provider (ASP)** for the OKX.AI ecosystem. Any AI agent can call a single API endpoint to get clearance before navigating to a URL — protecting users from phishing sites, wallet drainers, and malicious scripts.
-
-It monitors live network traffic, scans websites in an **isolated Playwright sandbox** before loading them, uses **Groq's Llama 3.3 70B** to classify threats in real time, and routes every AI decision through **Civic AI's governance layer** for a full audit trail.
+SENTINEL is a full-stack AI security platform and **Agent Service Provider (ASP)** built for the OKX.AI ecosystem. Any AI agent can call a single API endpoint to get clearance before navigating to a URL — protecting users from phishing, wallet drainers, and malicious scripts before any damage is done.
 
 ### The Problem
 
@@ -62,14 +60,12 @@ AI agents browse the internet blindly. They click links, visit sites, approve tr
 ### The Solution
 
 ```js
-// 5 lines. That's all it takes.
+// 5 lines. That's all it takes to protect any agent.
 const { clearanceGranted, reason } = await fetch(
   '/api/v1/agent/clearance',
   { method: 'POST', body: JSON.stringify({ url, agentKey }) }
 ).then(r => r.json());
 ```
-
-Any OKX.AI agent inherits enterprise-grade security with one API call.
 
 ---
 
@@ -84,9 +80,10 @@ Any OKX.AI agent inherits enterprise-grade security with one API call.
 | 📊 | **Threat Forecast** | Predictive AI engine forecasts attacks before they peak | Groq |
 | 🚦 | **Navigation Interceptor** | Chrome extension redirects every navigation through the warning page | - |
 | 🖥️ | **Interactive Sandbox Browser** | Browse suspicious sites inside an isolated Chromium stream | - |
-| ⚡ | **SSE Live Dashboard** | Server-Sent Events replace polling — instant push updates | - |
-| 🔒 | **Auto-Response Engine** | IP blocking, rate limiting — all governed and reversible | **Civic AI** |
-| 💻 | **SENTINEL CLI** | Terminal interface — scan, block, monitor without touching the browser | Civic-governed |
+| ⚡ | **SSE Live Dashboard** | Server-Sent Events — instant push updates, zero polling | - |
+| 🔒 | **Auto-Response Engine** | IP blocking, rate limiting — governed and reversible | **Civic AI** |
+| 💻 | **SENTINEL CLI** | Terminal interface — scan, block, monitor without a browser | Civic-governed |
+| 🧩 | **Chrome Extension** | Intercepts every navigation, shows threat popup before page loads | - |
 | 📤 | **Data Export** | JSON and CSV download of all traffic and threat data | - |
 
 ---
@@ -103,43 +100,26 @@ Any OKX.AI agent inherits enterprise-grade security with one API call.
 ┌──────────────────────────▼──────────────────────────────────┐
 │                   NEXT.JS SERVER :3000                       │
 │                                                             │
-│  /          SOC Dashboard (8 tabs)                          │
+│  /          Landing + SOC Dashboard (8 tabs)                │
 │  /sandbox   Sandbox Scanner + Interactive Browser           │
 │  /warning   Navigation Interceptor Warning Page             │
 │                                                             │
-│  /api/sandbox-scan      Playwright headless scan            │
-│  /api/live-updates      SSE stream                          │
-│  /api/groq-analyze      Llama 3.3 70B analysis              │
-│  /api/civic-audit       Civic MCP tool calls + audit log    │
-│  /api/threat-forecast   Predictive threat engine            │
-│  /api/v1/agent/clearance  Agent Service Provider API        │
-└──────────┬───────────────────────────────────┬──────────────┘
-           │                                   │
-┌──────────▼──────────┐           ┌────────────▼────────────┐
-│  SANDBOX SERVER     │           │     CIVIC MCP HUB        │
-│  WebSocket + Express│           │  🛡️ Hard Guardrails      │
-│  Playwright Chromium│           │  📝 Full Audit Trail     │
-│  Screenshot stream  │           │  ⚡ Rate Limiting        │
-└─────────────────────┘           │  🔑 Permission Control   │
-                                  └─────────────────────────┘
+│  /api/sandbox-scan         Playwright headless scan         │
+│  /api/live-updates         SSE stream                       │
+│  /api/groq-analyze         Llama 3.3 70B analysis           │
+│  /api/civic-audit          Civic MCP tool calls             │
+│  /api/threat-forecast      Predictive threat engine         │
+│  /api/v1/agent/clearance   Agent Service Provider API       │
+└──────────┬──────────────────────────────────┬───────────────┘
+           │                                  │
+┌──────────▼──────────┐          ┌────────────▼─────────────┐
+│  SANDBOX SERVER     │          │      CIVIC MCP HUB        │
+│  WebSocket :4000    │          │  🛡️ Hard Guardrails       │
+│  Playwright Chromium│          │  📝 Full Audit Trail      │
+│  Screenshot stream  │          │  ⚡ Rate Limiting         │
+└─────────────────────┘          │  🔑 Permission Control    │
+                                 └──────────────────────────┘
 ```
-
----
-
-## Stack
-
-| Layer | Tech | AI Component |
-|---|---|---|
-| Frontend | Next.js 16 · React 19 · TypeScript 5 | - |
-| Charts | Recharts 3 with animated area/bar/pie | - |
-| AI Inference | Groq SDK · Llama 3.3 70B Versatile | **Groq** |
-| AI Governance | Civic MCP Hub · JWT token · Guardrails | **Civic AI** |
-| Orchestrator | Groq Llama-3.3-70B multi-agent LLM | **Groq** |
-| Sandbox | Playwright 1.59 · Chromium headless | - |
-| Real-time | Server-Sent Events (native) | - |
-| Extension | Chrome MV3 · webNavigation · webRequest | - |
-| CLI | Commander · Chalk · Boxen · cli-table3 | - |
-| Data Store | In-memory SessionStore (zero DB) | - |
 
 ---
 
@@ -166,7 +146,6 @@ GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxx
 CIVIC_API_KEY=your_civic_jwt
 CIVIC_MCP_URL=https://app.civic.com/hub/mcp?accountId=YOUR_ID&profile=default
 
-# Local dev
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
@@ -184,39 +163,26 @@ npm run sandbox
 # → ws://localhost:4000
 ```
 
-### 5. Load the Chrome extension
+### 5. Load the Chrome Extension
 
-- Open `chrome://extensions`
-- Enable **Developer mode**
-- Click **Load unpacked** → select the `extension/` folder
+1. Open **chrome://extensions** in Chrome
+2. Toggle **Developer mode** ON (top right)
+3. Click **Load unpacked**
+4. Select the `extension/` folder inside this project
+5. The SENTINEL icon appears in your toolbar — every navigation is now intercepted and scanned
 
 ---
 
 ## SENTINEL CLI
 
-Terminal access to the entire platform. Server must be running.
-
 ```bash
-# Scan a website in the Playwright sandbox
 npm run lokey -- scan github.com
 npm run lokey -- scan http://login-verify-account.com
-
-# Full sandbox execution log
 npm run lokey -- sandbox example.com
-
-# Show active threat alerts
 npm run lokey -- alerts
-
-# Live traffic stream
 npm run lokey -- traffic
-
-# Block an IP address (governed by Civic AI)
 npm run lokey -- block-ip 45.33.22.11
-
-# Recent sandbox-scanned sites
 npm run lokey -- sites
-
-# Full system security stats
 npm run lokey -- stats
 ```
 
@@ -224,24 +190,18 @@ npm run lokey -- stats
 
 ## Agent Clearance API
 
-Any OKX.AI agent can call this endpoint before navigating to a URL:
-
 ```bash
 POST /api/v1/agent/clearance
-{
-  "url": "https://uniswap-claim-airdrop.com",
-  "agentKey": "optional"
-}
+{ "url": "https://uniswap-claim-airdrop.com" }
 ```
 
-Response:
 ```json
 {
   "clearanceGranted": false,
   "riskScore": 87,
   "reason": "Wallet drainer script detected",
   "suggestedAction": "ABORT",
-  "auditId": "civ-20260117-abc123"
+  "auditId": "civ-20260717-abc123"
 }
 ```
 
@@ -249,17 +209,13 @@ Response:
 
 ## Civic AI Governance
 
-Every AI action is routed through Civic's MCP Hub before execution.
-
-| Guardrail | Description |
+| Guardrail | Rule |
 |---|---|
-| ✓ No localhost blocking | Cannot block 127.0.0.1, localhost, or 0.0.0.0 |
+| ✓ No localhost blocking | Cannot block 127.0.0.1 or 0.0.0.0 |
 | ✓ Rate limiting | Max 5 `block_ip` calls per minute |
 | ✓ Self-protection | AI cannot revoke its own permissions |
-| ✓ Domain allowlist | Cannot block *.gov, *.edu, trusted domains |
+| ✓ Domain allowlist | Cannot block *.gov, *.edu |
 | ✓ Full audit trail | Every tool call logged with Civic audit ID |
-
-Graceful fallback — if Civic Hub is unreachable, all features continue working with local rules.
 
 ---
 
@@ -271,29 +227,11 @@ Graceful fallback — if Civic Hub is unreachable, all features continue working
 | Password field on HTTP | +40 |
 | Session cookie missing Secure flag | +25 |
 | Missing Content-Security-Policy | +10 |
-| Missing X-Frame-Options | +8 |
-| innerHTML assignment in inline JS | +8 |
-| Mixed content (HTTP on HTTPS page) | +15 |
 | Phishing URL pattern | +45 |
 | Known malicious domain | +60 |
 | Groq AI enrichment | up to +15 |
 
-**Verdict thresholds:** safe < 35 · warning 35–59 · block ≥ 60
-
----
-
-## Dashboard Tabs
-
-| Tab | What it shows |
-|---|---|
-| GOVERNANCE FEED | Live Civic audit trail · tool calls · guardrail results |
-| DASHBOARD | Resource monitor · security score · live traffic charts |
-| TRAFFIC LOGS | Full packet table with risk scores and attack types |
-| THREAT ANALYSIS | Active alerts with AI-powered response actions |
-| RESPONSE ENGINE | Blocked IPs with unblock · full response log |
-| WEBSITE SECURITY | Recent sandbox scans · Chrome extension feed |
-| THREAT FORECAST | Predictive attack probability · AI reasoning |
-| AGENT API | Live clearance API test widget · integration guide |
+**Verdicts:** safe < 35 · warning 35–59 · block ≥ 60
 
 ---
 
@@ -301,40 +239,23 @@ Graceful fallback — if Civic Hub is unreachable, all features continue working
 
 ```
 ├── app/
-│   ├── page.tsx              # Landing + SOC Dashboard
-│   ├── sandbox/page.tsx      # Sandbox scanner + interactive browser
-│   ├── warning/page.tsx      # Navigation interceptor warning page
-│   └── api/                  # 18 API routes
+│   ├── page.tsx                    # Landing + SOC Dashboard
+│   ├── sandbox/page.tsx            # Sandbox scanner
+│   ├── warning/page.tsx            # Navigation warning page
+│   └── api/                        # 18 API routes
 ├── components/
-│   ├── SOCDashboard.tsx
-│   ├── GovernanceFeed.tsx    # ★ Hero tab — Civic audit live feed
-│   ├── ThreatForecastPanel.tsx
-│   ├── AgentActivityPanel.tsx
+│   ├── GovernanceFeed.tsx          # ★ Civic audit live feed
+│   ├── ThreatForecastPanel.tsx     # Predictive AI engine
+│   ├── AgentActivityPanel.tsx      # Agent API tab
 │   └── WebsiteSecurityPanel.tsx
 ├── lib/
-│   ├── sandboxScanner.ts     # Playwright scanner engine
-│   ├── orchestrator.ts       # Groq multi-agent LLM orchestrator
-│   ├── civicClient.ts        # 🛡️ Civic MCP Hub client
-│   └── sessionStore.ts       # In-memory data store
-├── extension/
-│   ├── background.js         # Navigation interceptor + traffic logging
-│   ├── content.js            # Floating widget + threat panel
-│   └── popup.html/js         # Extension popup
-├── cli/
-│   ├── lokey.ts              # CLI entry point
-│   └── commands/             # scan · sandbox · alerts · traffic · block-ip
-└── sandbox-server/
-    └── server.ts             # WebSocket screenshot streaming
+│   ├── sandboxScanner.ts           # Playwright scanner
+│   ├── orchestrator.ts             # Groq multi-agent LLM
+│   └── civicClient.ts              # Civic MCP Hub client
+├── extension/                      # Chrome MV3 extension
+├── cli/                            # SENTINEL CLI
+└── sandbox-server/                 # WebSocket screenshot server
 ```
-
----
-
-## Known Limitations
-
-- In-memory only — all data resets on server restart
-- Sandbox scan speed — Playwright takes 2–5s per scan
-- Navigation interceptor — redirect happens after navigation commits (MV3 limitation)
-- Civic dependency — full governance requires internet connection (graceful fallback available)
 
 ---
 
@@ -342,11 +263,8 @@ Graceful fallback — if Civic Hub is unreachable, all features continue working
 
 Built for OKX.AI Genesis Hackathon 2026 · Powered by Groq · Governed by Civic AI
 
-| Component | Role |
-|---|---|
-| 🚀 Groq | Fast LLM inference (Llama 3.3 70B) |
-| 🛡️ Civic AI | Governance, guardrails, audit trails |
-| 🔬 Playwright | Isolated sandbox browsing |
-| ⚡ Next.js | Full-stack React framework |
+| 🚀 Groq | 🛡️ Civic AI | 🔬 Playwright | 🧩 Chrome MV3 |
+|---|---|---|---|
+| Llama 3.3 70B inference | Governance & audit trails | Isolated sandbox browsing | Navigation interceptor |
 
 </div>
